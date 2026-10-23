@@ -1,0 +1,200 @@
+@import url('https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800;900&family=Figtree:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Manrope:wght@400;500;600;700;800&display=swap');
+
+:root {
+  --ink: #17223B;
+  --paper: #FBF8F2;
+  --card: #FFFFFF;
+  --amber: #E8973A;
+  --amber-dark: #8A5417;
+  --coral: #E0684A;
+  --coral-dark: #8C3822;
+  --teal: #2F8F72;
+  --line: #EAE3D4;
+  --muted: #7A7364;
+}
+
+* { box-sizing: border-box; }
+html { font-size: 17px; }
+body {
+  margin: 0;
+  font-family: 'Manrope', -apple-system, sans-serif;
+  color: var(--ink);
+  background: var(--paper);
+  -webkit-font-smoothing: antialiased;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+a { text-decoration: none; color: inherit; }
+
+.display, h1, h2, h3 { font-family: 'Fraunces', serif; }
+
+.container { max-width: 1280px; margin: 0 auto; padding: 0 40px; }
+.section-title { font-family: 'Fraunces', serif; font-size: 38px; font-weight: 600; margin: 0 0 10px; letter-spacing: -0.01em; }
+.section-subtitle { color: var(--muted); margin-bottom: 36px; font-size: 17px; }
+
+/* Element Plus 全局微调：圆角化、放大字号和间距 */
+.el-button {
+  border-radius: 12px !important;
+  font-weight: 700 !important;
+  padding: 14px 26px !important;
+  height: auto !important;
+  font-size: 15px !important;
+}
+.el-button--primary {
+  background: var(--coral) !important;
+  border-color: var(--coral) !important;
+}
+.el-button--primary:hover {
+  background: var(--coral-dark) !important;
+  border-color: var(--coral-dark) !important;
+}
+.el-card {
+  border-radius: 18px !important;
+  border: none !important;
+  box-shadow: 0 1px 3px rgba(23,34,59,.06) !important;
+}
+.el-input__wrapper, .el-select__wrapper {
+  border-radius: 12px !important;
+  padding: 8px 16px !important;
+  min-height: 44px !important;
+  box-sizing: border-box !important;
+  box-shadow: 0 0 0 1px var(--line) inset !important;
+}
+.el-input__wrapper.is-focus, .el-select__wrapper.is-focused {
+  box-shadow: 0 0 0 1.5px var(--coral) inset !important;
+}
+.el-input__inner, .el-select__placeholder, .el-select__selected-item {
+  font-size: 15px !important;
+}
+.el-menu-item, .el-sub-menu__title {
+  font-size: 15px !important;
+}
+
+/* 品牌下拉图标：放在全局(非scoped)，因为 el-select 下拉层会被 teleport 到 body 外，
+   组件内 scoped 样式在虚拟滚动场景下可能无法命中这里的元素 */
+.make-logo {
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+  vertical-align: -8px;
+  margin-right: 10px;
+}
+.el-select-dropdown__item {
+  height: auto !important;
+  padding: 8px 20px !important;
+  line-height: normal !important;
+}
+
+/* 后台所有表格的"操作"列统一用这套按钮样式，保证Edit/Delete在任何页面看起来大小一致 */
+.action-buttons { display: flex; gap: 8px; }
+.action-buttons .el-button {
+  flex: 1;
+  min-width: 64px;
+  padding: 8px 0 !important;
+  margin-left: 0 !important;
+}
+
+/* 滚动进入视口时的渐显动画，配合 v-reveal 指令使用 */
+.reveal-init { opacity: 0; transform: translateY(18px); transition: opacity .6s ease, transform .6s ease; }
+.reveal-visible { opacity: 1; transform: translateY(0); }
+@media (prefers-reduced-motion: reduce) {
+  .reveal-init { opacity: 1; transform: none; transition: none; }
+}
+
+/* ===== 前台网站风格(浅色商业风)：8套主题变量，后台不用这些变量所以不受影响 =====
+   A晴空蓝 B森林绿 C青蓝绿 D酒红 E靛蓝 F古铜金 G梅紫 H石墨灰；默认(未选择/加载前)按A显示 */
+:root, html[data-site-theme="A"] {
+  --s-primary: #2D6CB0; --s-primary-dark: #235A94; --s-primary-rgb: 45,108,176;
+  --s-soft: #EAF1F9; --s-soft2: #DCE8F6;
+  --s-bg: #F3F5F8; --s-surface: #FFFFFF; --s-strip: #F1F4F8;
+  --s-line: #DDE2EA; --s-line2: #CDD4DF; --s-field: #F8F9FB;
+  --s-ph1: #E8EBF0; --s-ph2: #D6DBE3;
+  --s-ink: #1F2937; --s-text2: #4A5565; --s-muted: #5B6676; --s-faint: #8590A0;
+  --s-accent: #C9822B; --s-sold: #9B2C2C; --s-low: #2F6F73;
+}
+html[data-site-theme="B"] {
+  --s-primary: #2F6B4F; --s-primary-dark: #265940; --s-primary-rgb: 47,107,79;
+  --s-soft: #E8F0EA; --s-soft2: #D6E6DB;
+  --s-bg: #F6F5F0; --s-surface: #FFFFFF; --s-strip: #EFEFE8;
+  --s-line: #DEDDD2; --s-line2: #CFCEC1; --s-field: #FAFAF6;
+  --s-ph1: #E9E8E0; --s-ph2: #D8D7CB;
+  --s-ink: #1F2A24; --s-text2: #4F5A52; --s-muted: #5E6A62; --s-faint: #8A9189;
+  --s-accent: #B7791F; --s-sold: #9B2C2C; --s-low: #2F6F73;
+}
+html[data-site-theme="C"] {
+  --s-primary: #1F7A8C; --s-primary-dark: #19636F; --s-primary-rgb: 31,122,140;
+  --s-soft: #E4F2F5; --s-soft2: #D0E8EE;
+  --s-bg: #F4F7F8; --s-surface: #FFFFFF; --s-strip: #ECF2F4;
+  --s-line: #D9E3E6; --s-line2: #C7D5DA; --s-field: #F8FBFC;
+  --s-ph1: #E4EAEC; --s-ph2: #D2DBDF;
+  --s-ink: #1D2B30; --s-text2: #475A61; --s-muted: #587078; --s-faint: #86979D;
+  --s-accent: #C27A2C; --s-sold: #9B2C2C; --s-low: #2F6F73;
+}
+html[data-site-theme="D"] {
+  --s-primary: #9A3B3B; --s-primary-dark: #7E2F2F; --s-primary-rgb: 154,59,59;
+  --s-soft: #F6ECE9; --s-soft2: #EEDAD4;
+  --s-bg: #FAF7F4; --s-surface: #FFFFFF; --s-strip: #F3EEE9;
+  --s-line: #E6DDD6; --s-line2: #D6CABF; --s-field: #FDFBF9;
+  --s-ph1: #EDE6E0; --s-ph2: #DFD5CC;
+  --s-ink: #2B2220; --s-text2: #5C4E4A; --s-muted: #6E5F5A; --s-faint: #9A8D88;
+  --s-accent: #B07A2A; --s-sold: #9B2C2C; --s-low: #2F6F73;
+}
+
+html[data-site-theme="E"] {
+  --s-primary: #4A57A8; --s-primary-dark: #3B468A; --s-primary-rgb: 74,87,168;
+  --s-soft: #ECEEF8; --s-soft2: #DDE1F2;
+  --s-bg: #F5F5F9; --s-surface: #FFFFFF; --s-strip: #EEEFF6;
+  --s-line: #DEDFEA; --s-line2: #CFD1E1; --s-field: #F9F9FC;
+  --s-ph1: #E8E9F1; --s-ph2: #D7D9E6;
+  --s-ink: #1E2036; --s-text2: #4C4F6B; --s-muted: #5D6080; --s-faint: #8C8EA6;
+  --s-accent: #C98A2B; --s-sold: #9B2C2C; --s-low: #2F6F73;
+}
+html[data-site-theme="F"] {
+  --s-primary: #8A6420; --s-primary-dark: #6F501A; --s-primary-rgb: 138,100,32;
+  --s-soft: #F6EFE1; --s-soft2: #EDE0C6;
+  --s-bg: #FAF8F3; --s-surface: #FFFFFF; --s-strip: #F3EFE6;
+  --s-line: #E7E0D0; --s-line2: #D8CEB8; --s-field: #FDFBF7;
+  --s-ph1: #EEE8DA; --s-ph2: #E0D8C4;
+  --s-ink: #2A241A; --s-text2: #5A5242; --s-muted: #6B6250; --s-faint: #9A917D;
+  --s-accent: #2B6E73; --s-sold: #9B2C2C; --s-low: #2F6F73;
+}
+html[data-site-theme="G"] {
+  --s-primary: #6E4B8E; --s-primary-dark: #593C75; --s-primary-rgb: 110,75,142;
+  --s-soft: #F1ECF6; --s-soft2: #E4DAEE;
+  --s-bg: #F8F6FA; --s-surface: #FFFFFF; --s-strip: #F0EDF3;
+  --s-line: #E3DDE9; --s-line2: #D3CADD; --s-field: #FBFAFC;
+  --s-ph1: #ECE8F0; --s-ph2: #DCD6E4;
+  --s-ink: #271F30; --s-text2: #55495F; --s-muted: #655A70; --s-faint: #948A9F;
+  --s-accent: #C08A2E; --s-sold: #9B2C2C; --s-low: #2F6F73;
+}
+html[data-site-theme="H"] {
+  --s-primary: #475569; --s-primary-dark: #394556; --s-primary-rgb: 71,85,105;
+  --s-soft: #ECEFF3; --s-soft2: #DEE3EA;
+  --s-bg: #F4F5F7; --s-surface: #FFFFFF; --s-strip: #EDEFF2;
+  --s-line: #DCE0E6; --s-line2: #CBD1D9; --s-field: #F9FAFB;
+  --s-ph1: #E7EAEE; --s-ph2: #D6DBE1;
+  --s-ink: #1E2530; --s-text2: #4A5361; --s-muted: #5B6471; --s-faint: #8A929E;
+  --s-accent: #C9822B; --s-sold: #9B2C2C; --s-low: #2F6F73;
+}
+
+/* 只有前台页面才会带 data-site-theme 属性(App.vue 在后台路由下会去掉)，下面全是前台专用覆盖 */
+html[data-site-theme] body { font-family: 'Figtree', 'Manrope', -apple-system, sans-serif; color: var(--s-ink); background: var(--s-bg); }
+html[data-site-theme] .display, html[data-site-theme] h1, html[data-site-theme] h2, html[data-site-theme] h3 {
+  font-family: 'Archivo', sans-serif; letter-spacing: -.02em;
+}
+html[data-site-theme] .section-title { font-family: 'Archivo', sans-serif; font-weight: 900; font-size: 40px; letter-spacing: -.02em; }
+html[data-site-theme] .section-subtitle { color: var(--s-muted); }
+html[data-site-theme] .eyebrow-label { font: 800 17px/1 'Archivo', sans-serif; letter-spacing: .12em; text-transform: uppercase; color: var(--s-primary); margin-bottom: 12px; }
+html[data-site-theme] .el-button { border-radius: 6px !important; font-family: 'Archivo', sans-serif; letter-spacing: .08em; text-transform: uppercase; font-size: 13px !important; font-weight: 800 !important; }
+html[data-site-theme] .el-button--primary { background: var(--s-primary) !important; border-color: var(--s-primary) !important; color: #fff !important; }
+html[data-site-theme] .el-button--primary:hover { background: var(--s-primary-dark) !important; border-color: var(--s-primary-dark) !important; }
+html[data-site-theme] .el-card { border-radius: 12px !important; border: 1px solid var(--s-line) !important; box-shadow: none !important; }
+html[data-site-theme] .el-input__wrapper, html[data-site-theme] .el-select__wrapper, html[data-site-theme] .el-textarea__inner {
+  border-radius: 6px !important; background: var(--s-field); box-shadow: 0 0 0 1px var(--s-line2) inset !important;
+}
+html[data-site-theme] .el-input__wrapper.is-focus, html[data-site-theme] .el-select__wrapper.is-focused { box-shadow: 0 0 0 1.5px var(--s-primary) inset !important; }
+html[data-site-theme] .el-select-dropdown__item.is-selected { color: var(--s-primary); }
+html[data-site-theme] .el-checkbox__input.is-checked .el-checkbox__inner,
+html[data-site-theme] .el-radio__input.is-checked .el-radio__inner { background-color: var(--s-primary); border-color: var(--s-primary); }
+html[data-site-theme] .el-menu--popup { border-radius: 8px; }

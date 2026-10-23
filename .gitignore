@@ -1,0 +1,7 @@
+mcwilliamauto-backend/target/
+mcwilliamauto-backend/*.class
+mcwilliamauto-backend/.settings
+.idea/
+*.iml
+mcwilliamauto-frontend/node_modules
+mcwilliamauto-frontend/dist

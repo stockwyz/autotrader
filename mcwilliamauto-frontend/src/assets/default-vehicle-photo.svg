@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400">
+  <defs>
+    <linearGradient id="bodyGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#C7CCD3"/>
+      <stop offset="100%" stop-color="#9AA1AB"/>
+    </linearGradient>
+    <linearGradient id="glassGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#7C8894"/>
+      <stop offset="100%" stop-color="#5C6670"/>
+    </linearGradient>
+  </defs>
+
+  <!-- 阴影 -->
+  <ellipse cx="200" cy="272" rx="140" ry="10" fill="#000" opacity="0.08"/>
+
+  <!-- 车身主体：侧面轮廓，比例参考真实轿车 -->
+  <path d="
+    M55 232
+    L60 210
+    Q64 196 80 190
+    L112 178
+    Q130 140 168 128
+    L232 128
+    Q262 130 282 152
+    L300 178
+    L336 186
+    Q352 190 356 206
+    L360 232
+    Z"
+    fill="url(#bodyGrad)" stroke="#6B7480" stroke-width="2"/>
+
+  <!-- 车窗 -->
+  <path d="
+    M120 176
+    Q136 146 168 136
+    L226 136
+    Q250 138 266 156
+    L280 176
+    Z"
+    fill="url(#glassGrad)"/>
+  <line x1="196" y1="136" x2="192" y2="176" stroke="#4A525B" stroke-width="2"/>
+
+  <!-- 车门线/细节 -->
+  <line x1="196" y1="184" x2="196" y2="228" stroke="#6B7480" stroke-width="1.5" opacity="0.6"/>
+  <rect x="150" y="196" width="26" height="6" rx="3" fill="#6B7480" opacity="0.5"/>
+  <rect x="252" y="196" width="26" height="6" rx="3" fill="#6B7480" opacity="0.5"/>
+
+  <!-- 前后大灯 -->
+  <ellipse cx="349" cy="200" rx="7" ry="9" fill="#EFD9A8"/>
+  <ellipse cx="63" cy="200" rx="6" ry="8" fill="#C97B5E"/>
+
+  <!-- 车轮 -->
+  <circle cx="118" cy="234" r="30" fill="#2B2F35"/>
+  <circle cx="118" cy="234" r="14" fill="#8A929B"/>
+  <circle cx="118" cy="234" r="5" fill="#4A525B"/>
+
+  <circle cx="298" cy="234" r="30" fill="#2B2F35"/>
+  <circle cx="298" cy="234" r="14" fill="#8A929B"/>
+  <circle cx="298" cy="234" r="5" fill="#4A525B"/>
+</svg>

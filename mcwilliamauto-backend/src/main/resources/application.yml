@@ -1,0 +1,68 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /
+
+spring:
+  application:
+    name: mcwilliamauto-backend
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/autotrader?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=true
+    username: root
+    password: root123456
+    type: com.alibaba.druid.pool.DruidDataSource
+  servlet:
+    multipart:
+      max-file-size: 200MB
+      max-request-size: 200MB
+  # 发邮件用的SMTP账号(预约确认邮件等)。以 Gmail 为例：host=smtp.gmail.com，password 填"应用专用密码"(App Password)，不是登录密码
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: fjrocket00@gmail.com
+    password: bdswrvrvuynmleta
+    properties:
+      mail.smtp.auth: true
+      mail.smtp.starttls.enable: true
+      mail.smtp.connectiontimeout: 8000
+      mail.smtp.timeout: 8000
+      mail.smtp.writetimeout: 8000
+
+mybatis-plus:
+  mapper-locations: classpath*:/mapper/**/*.xml
+  configuration:
+    map-underscore-to-camel-case: true
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  global-config:
+    db-config:
+      logic-delete-field: deleted
+      logic-delete-value: 1
+      logic-not-delete-value: 0
+      id-type: auto
+
+jwt:
+  secret: mcwilliamauto-jwt-secret-key-please-change-in-production-2026
+  expire-seconds: 86400
+
+file:
+  upload-dir: D:/zht/autowebsite/data/img
+  access-prefix: /uploads
+
+app:
+  # 后端服务对外访问的基础地址，用于把数据库里存的相对路径拼接成完整URL
+  # 生产环境部署后改成实际域名，比如 https://api.mcwilliamauto.ca
+  base-url: http://localhost:8080
+  # 前台网站对外访问的地址，邮件里的"确认/取消"按钮、后台链接都会拼到这个地址上
+  # 本地开发是 vite 的地址；上线后改成真实域名，比如 https://www.blackstone.ca
+  site-url: http://localhost:5173
+  mail:
+    # 总开关：SMTP 配好后改成 true。为 false 时只在日志里打印，不真正发信，也不影响预约提交
+    enabled: true
+    # 发件人地址，留空则使用 spring.mail.username
+    from:
+  appointment:
+    slot-minutes: 30
+    capacity: 1
+    min-lead-minutes: 60
+    max-advance-days: 60
