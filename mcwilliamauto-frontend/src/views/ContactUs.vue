@@ -2,12 +2,12 @@
   <div class="container page">
     <h1>Contact Us</h1>
     <el-row :gutter="32">
-      <el-col :span="12">
+      <el-col :xs="24" :sm="24" :md="12">
         <el-card>
           <ContactForm type="CONTACT" :initial-message="route.query.message || ''" />
         </el-card>
       </el-col>
-      <el-col :span="12">
+      <el-col :xs="24" :sm="24" :md="12">
         <h3>Location</h3>
         <p>{{ dealerInfo?.address || 'Address not configured' }}</p>
         <p v-if="dealerInfo?.phone">Phone: {{ dealerInfo.phone }}</p>

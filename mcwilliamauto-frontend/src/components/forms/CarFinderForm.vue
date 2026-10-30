@@ -2,16 +2,16 @@
   <el-form ref="formRef" :model="form" :rules="rules" label-position="top" @submit.prevent="onSubmit">
     <h3 class="section-title">Personal Information</h3>
     <el-row :gutter="16">
-      <el-col :span="12">
+      <el-col :xs="24" :sm="12">
         <el-form-item label="First Name" prop="firstName"><el-input v-model="form.firstName" /></el-form-item>
       </el-col>
-      <el-col :span="12">
+      <el-col :xs="24" :sm="12">
         <el-form-item label="Last Name" prop="lastName"><el-input v-model="form.lastName" /></el-form-item>
       </el-col>
-      <el-col :span="12">
+      <el-col :xs="24" :sm="12">
         <el-form-item label="Email" prop="email"><el-input v-model="form.email" /></el-form-item>
       </el-col>
-      <el-col :span="12">
+      <el-col :xs="24" :sm="12">
         <el-form-item label="Phone" prop="phone">
           <el-input v-model="form.phone" placeholder="e.g. 416-555-1234 or 138-1234-5678" />
         </el-form-item>
@@ -20,7 +20,7 @@
 
     <h3 class="section-title">Vehicle Information</h3>
     <el-row :gutter="16">
-      <el-col :span="12">
+      <el-col :xs="24" :sm="12">
         <el-form-item label="Make" prop="desiredMake">
           <el-select v-model="form.desiredMake" filterable allow-create default-first-option clearable placeholder="Select or type a make" style="width:100%" @change="onMakeChange">
             <el-option v-for="m in makes" :key="m.id" :label="m.name" :value="m.name">
@@ -30,82 +30,82 @@
           </el-select>
         </el-form-item>
       </el-col>
-      <el-col :span="12">
+      <el-col :xs="24" :sm="12">
         <el-form-item label="Model" prop="desiredModel">
           <el-select v-model="form.desiredModel" filterable allow-create default-first-option clearable placeholder="Select or type a model" style="width:100%">
             <el-option v-for="m in models" :key="m.id" :label="m.name" :value="m.name" />
           </el-select>
         </el-form-item>
       </el-col>
-      <el-col :span="12">
+      <el-col :xs="24" :sm="12">
         <el-form-item label="Min Year">
           <el-select v-model="form.minYear" clearable placeholder="Select min year" style="width:100%">
             <el-option v-for="y in yearOptions" :key="y" :label="y" :value="y" />
           </el-select>
         </el-form-item>
       </el-col>
-      <el-col :span="12">
+      <el-col :xs="24" :sm="12">
         <el-form-item label="Max Year">
           <el-select v-model="form.maxYear" clearable placeholder="Select max year" style="width:100%">
             <el-option v-for="y in yearOptions" :key="y" :label="y" :value="y" />
           </el-select>
         </el-form-item>
       </el-col>
-      <el-col :span="12">
+      <el-col :xs="24" :sm="12">
         <el-form-item label="Trim"><el-input v-model="form.desiredTrim" /></el-form-item>
       </el-col>
-      <el-col :span="12">
+      <el-col :xs="24" :sm="12">
         <el-form-item label="Kilometers"><el-input-number v-model="form.desiredKm" style="width:100%" :controls="false" :min="0" /></el-form-item>
       </el-col>
-      <el-col :span="12">
+      <el-col :xs="24" :sm="12">
         <el-form-item label="Body Style">
           <el-select v-model="form.desiredBodyStyle" filterable allow-create default-first-option clearable placeholder="Select a body style" style="width:100%">
             <el-option v-for="b in bodyStyles" :key="b.id" :label="b.name" :value="b.name" />
           </el-select>
         </el-form-item>
       </el-col>
-      <el-col :span="12">
+      <el-col :xs="24" :sm="12">
         <el-form-item label="Transmission">
           <el-select v-model="form.desiredTransmission" filterable allow-create default-first-option clearable placeholder="Select a transmission" style="width:100%">
             <el-option v-for="t in transmissions" :key="t.id" :label="t.name" :value="t.name" />
           </el-select>
         </el-form-item>
       </el-col>
-      <el-col :span="12">
+      <el-col :xs="24" :sm="12">
         <el-form-item label="Driveline">
           <el-select v-model="form.desiredDriveline" clearable placeholder="Select a driveline" style="width:100%">
             <el-option v-for="d in drivelineOptions" :key="d" :label="d" :value="d" />
           </el-select>
         </el-form-item>
       </el-col>
-      <el-col :span="12">
+      <el-col :xs="24" :sm="12">
         <el-form-item label="Fuel Type">
           <el-select v-model="form.desiredFuelType" filterable allow-create default-first-option clearable placeholder="Select a fuel type" style="width:100%">
             <el-option v-for="f in fuelTypes" :key="f.id" :label="f.name" :value="f.name" />
           </el-select>
         </el-form-item>
       </el-col>
-      <el-col :span="12">
+      <el-col :xs="24" :sm="12">
         <el-form-item label="Colour">
           <el-select v-model="form.desiredColor" filterable allow-create default-first-option clearable placeholder="Select a colour" style="width:100%">
             <el-option v-for="c in colors" :key="c.id" :label="c.name" :value="c.name" />
           </el-select>
         </el-form-item>
       </el-col>
-      <el-col :span="12">
+      <el-col :xs="24" :sm="12">
         <el-form-item label="Condition">
           <el-select v-model="form.desiredCondition" clearable placeholder="Select condition" style="width:100%">
             <el-option v-for="c in conditionOptions" :key="c" :label="c" :value="c" />
           </el-select>
         </el-form-item>
       </el-col>
-      <el-col :span="12">
+      <el-col :xs="24" :sm="12">
         <el-form-item label="Budget Min"><el-input-number v-model="form.budgetMin" style="width:100%" :controls="false" :min="0" /></el-form-item>
       </el-col>
-      <el-col :span="12">
+      <el-col :xs="24" :sm="12">
         <el-form-item label="Budget Max" prop="budgetMax"><el-input-number v-model="form.budgetMax" style="width:100%" :controls="false" :min="0" /></el-form-item>
       </el-col>
-      <el-col :span="24">
+      <el-col :xs="24" :sm="24">
         <el-form-item label="Additional Information">
           <el-input v-model="form.message" type="textarea" rows="4" placeholder="Anything else we should know about what you're looking for?" />
         </el-form-item>

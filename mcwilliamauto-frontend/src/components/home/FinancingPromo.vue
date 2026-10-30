@@ -26,4 +26,12 @@
 .step b { display: block; font-family: 'Archivo', sans-serif; font-weight: 900; font-size: 32px; color: var(--s-ink); }
 .step span { font: 800 9px 'Archivo', sans-serif; letter-spacing: .2em; text-transform: uppercase; color: var(--s-muted); }
 @media (max-width: 900px) { .promo { flex-direction: column; align-items: flex-start; padding: 28px; } .promo h2 { font-size: 32px; } }
+
+@media (max-width: 640px) {
+  .promo { padding: 24px 18px; gap: 24px; }
+  .promo h2 { font-size: 30px; }
+  .steps { width: 100%; gap: 8px; }
+  .step { width: auto; min-width: 0; flex: 1; }
+  .step b { font-size: 26px; }
+}
 </style>

@@ -1,5 +1,5 @@
 <template>
-  <el-descriptions title="Vehicle Specs" :column="2" border>
+  <el-descriptions title="Vehicle Specs" :column="smallScreen ? 1 : 2" class="vehicle-specs" border>
     <el-descriptions-item label="Make">{{ v.makeName }}</el-descriptions-item>
     <el-descriptions-item label="Model">{{ v.modelName }}</el-descriptions-item>
     <el-descriptions-item label="Year">{{ v.year }}</el-descriptions-item>
@@ -22,5 +22,15 @@
 </template>
 
 <script setup>
+import { useMediaQuery } from '@/composables/useMediaQuery'
+const smallScreen = useMediaQuery('(max-width: 640px)')
 defineProps({ v: { type: Object, required: true } })
 </script>
+
+<style scoped>
+@media (max-width: 640px) {
+  .vehicle-specs :deep(.el-descriptions__table) { table-layout: fixed; }
+  .vehicle-specs :deep(.el-descriptions__label) { width: 38%; }
+  .vehicle-specs :deep(.el-descriptions__cell) { overflow-wrap: anywhere; }
+}
+</style>

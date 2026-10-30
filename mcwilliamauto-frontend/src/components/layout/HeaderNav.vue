@@ -16,7 +16,7 @@
         <span class="name">{{ dealerInfo?.name || 'McWilliam Auto' }}</span>
       </router-link>
 
-      <el-menu mode="horizontal" :ellipsis="false" class="nav-menu" router :default-active="$route.path">
+      <el-menu class="desktop-menu nav-menu" mode="horizontal" :ellipsis="false" router :default-active="$route.path">
         <el-menu-item index="/">Home</el-menu-item>
         <el-sub-menu index="inventory">
           <template #title>Inventory</template>
@@ -40,15 +40,50 @@
         </el-sub-menu>
         <el-menu-item index="/appointment">Appointment</el-menu-item>
       </el-menu>
+      <button class="mobile-menu-toggle" type="button" :aria-expanded="menuOpen" aria-controls="mobile-navigation" @click="menuOpen = !menuOpen">
+        <span aria-hidden="true">{{ menuOpen ? '✕' : '☰' }}</span> {{ menuOpen ? 'Close' : 'Menu' }}
+      </button>
     </div>
+    <nav v-if="menuOpen" id="mobile-navigation" class="mobile-navigation" aria-label="Main navigation" @keydown.esc="closeMenu">
+      <router-link to="/" @click="closeMenu">Home</router-link>
+      <details>
+        <summary>Inventory</summary>
+        <router-link to="/used-cars" @click="closeMenu">Browse Used Inventory</router-link>
+        <router-link :to="{ path: '/used-cars', query: { sold: 1 } }" @click="closeMenu">Sold Vehicles</router-link>
+        <router-link :to="{ path: '/used-cars', query: { featured: 1 } }" @click="closeMenu">Used Vehicle Specials</router-link>
+        <router-link to="/carfinder" @click="closeMenu">Car Finder</router-link>
+        <router-link to="/trade-in" @click="closeMenu">Trade-In Appraisal</router-link>
+      </details>
+      <details>
+        <summary>Financing</summary>
+        <router-link to="/finance" @click="closeMenu">Finance Department</router-link>
+        <router-link to="/car-loan-calculator" @click="closeMenu">Car Loan Calculator</router-link>
+        <router-link to="/car-loan-application" @click="closeMenu">Apply For Credit</router-link>
+      </details>
+      <details>
+        <summary>Dealership</summary>
+        <router-link to="/about-us" @click="closeMenu">About Us</router-link>
+        <router-link to="/contact-us" @click="closeMenu">Contact Us</router-link>
+        <router-link to="/careers" @click="closeMenu">Careers</router-link>
+      </details>
+      <router-link to="/appointment" @click="closeMenu">Appointment</router-link>
+    </nav>
   </header>
 </template>
 
 <script setup>
-import { computed, onMounted } from 'vue'
+import { computed, onMounted, ref, watch } from 'vue'
+import { useRoute } from 'vue-router'
+import { useMediaQuery } from '@/composables/useMediaQuery'
 import { storeToRefs } from 'pinia'
 import { useDealerStore } from '@/store/useDealerStore'
 
+const route = useRoute()
+const menuOpen = ref(false)
+const compact = useMediaQuery('(max-width: 1100px)')
+const closeMenu = () => { menuOpen.value = false }
+watch(() => route.fullPath, closeMenu)
+watch(compact, closeMenu)
 const dealerStore = useDealerStore()
 const { info: dealerInfo } = storeToRefs(dealerStore)
 onMounted(() => dealerStore.ensureLoaded())
@@ -77,4 +112,30 @@ const dealerInitial = computed(() => (dealerInfo.value?.name || 'McWilliam Auto'
 :deep(.el-menu-item), :deep(.el-sub-menu__title) { font-weight: 700 !important; font-size: 17px !important; height: 76px !important; line-height: 76px !important; padding: 0 18px !important; border-bottom: 3px solid transparent !important; background: transparent !important; }
 :deep(.el-menu-item.is-active), :deep(.el-sub-menu.is-active > .el-sub-menu__title) { color: var(--s-primary) !important; border-bottom-color: var(--s-primary) !important; }
 :deep(.el-menu-item:hover), :deep(.el-sub-menu__title:hover) { color: var(--s-primary) !important; background: transparent !important; }
+
+.mobile-menu-toggle, .mobile-navigation { display: none; }
+@media (max-width: 1100px) {
+  .desktop-menu { display: none; }
+  .nav-inner { height: auto; min-height: 76px; gap: 16px; }
+  .logo { min-width: 0; }
+  .logo .mark { flex-shrink: 0; }
+  .logo .name { font-size: 22px; line-height: 1.15; overflow-wrap: anywhere; }
+  .mobile-menu-toggle { display: inline-flex; align-items: center; justify-content: center; gap: 8px; flex-shrink: 0; min-height: 44px; padding: 8px 12px; border: 1px solid var(--s-line2); border-radius: 6px; color: var(--s-primary); background: #fff; font: inherit; font-weight: 700; font-size: 15px; cursor: pointer; }
+  .mobile-menu-toggle span { font-size: 22px; }
+  .mobile-navigation { display: block; border-top: 1px solid var(--s-line); padding: 8px 24px 16px; background: #fff; max-height: 65vh; max-height: 65dvh; overflow-y: auto; overscroll-behavior: contain; }
+  .mobile-navigation a, .mobile-navigation summary { display: block; padding: 12px 8px; min-height: 44px; font-weight: 700; cursor: pointer; }
+  .mobile-navigation summary { display: list-item; margin-left: 20px; }
+  .mobile-navigation details a { padding-left: 28px; color: var(--s-text2); }
+  .mobile-navigation .router-link-exact-active { color: var(--s-primary); }
+}
+@media (max-width: 640px) {
+  .top-bar-inner { flex-direction: column; align-items: flex-start; height: auto; gap: 6px; padding: 8px 16px; font-size: 12px; line-height: 1.4; }
+  .top-bar-inner .right { width: 100%; justify-content: space-between; flex-wrap: wrap; gap: 8px; }
+  .top-bar-inner .right > a { white-space: nowrap; }
+  .top-bar-inner .right a.text-us-link { padding: 4px 10px; }
+  .nav-inner { min-height: 68px; padding: 12px 16px; }
+  .logo .name { font-size: 20px; }
+  .logo .mark { width: 32px; height: 36px; font-size: 20px; }
+  .mobile-navigation { padding-inline: 16px; }
+}
 </style>

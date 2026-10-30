@@ -255,4 +255,17 @@ function gradientFor(id) {
   .list-mode { grid-template-columns: 1fr; }
   .list-info-col, .list-compare { border-right: none; }
 }
+
+@media (min-width: 901px) and (max-width: 1100px) { .list-mode { grid-template-columns: 260px minmax(0, 1fr) 190px; } }
+@media (max-width: 640px) {
+  .vehicle-card, .vehicle-card > div { min-width: 0; }
+  .dealer-strip { flex-wrap: wrap; gap: 8px; padding: 10px 12px; }
+  .dealer-left { flex-basis: 100%; margin-right: 0; }
+  .dealer-phone { font-size: 15px; }
+  .grid-mode .body { padding: 16px; }
+  .spec-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
+  .grid-mode .km-price-row { flex-wrap: wrap; gap: 8px; }
+  .grid-mode .cta { font-size: 10px; min-height: 44px; }
+  .list-info-col, .list-action-col { padding: 16px; }
+}
 </style>

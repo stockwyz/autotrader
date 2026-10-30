@@ -54,4 +54,12 @@ function nextImage() {
 .thumbs { display: flex; gap: 8px; margin-top: 10px; overflow-x: auto; }
 .thumbs img { width: 80px; height: 60px; object-fit: cover; border-radius: 4px; cursor: pointer; opacity: .6; }
 .thumbs img.active { opacity: 1; outline: 2px solid var(--s-primary); }
+
+@media (max-width: 640px) {
+  .main-image { height: auto; aspect-ratio: 4 / 3; }
+  .thumbs { padding: 3px; }
+  .thumbs img { flex: 0 0 72px; width: 72px; height: 54px; }
+  .nav-arrow.left { left: 8px; }
+  .nav-arrow.right { right: 8px; }
+}
 </style>

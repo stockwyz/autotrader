@@ -197,4 +197,16 @@ watch(
 .grid.list { display: flex; flex-direction: column; gap: 20px; }
 @media (max-width: 992px) { .grid:not(.list) { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 640px) { .grid:not(.list) { grid-template-columns: 1fr; } }
+
+@media (max-width: 1024px) {
+  .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .sortrow { flex-wrap: wrap; gap: 8px 14px; }
+  .resultbar-left { min-width: 0; }
+}
+@media (max-width: 640px) {
+  .vehicle-list-page.container { padding-inline: 16px; }
+  .page-title { font-size: 24px; line-height: 1.25; }
+  .grid:not(.list) { grid-template-columns: minmax(0, 1fr); }
+  .sort-link { min-height: 36px; }
+}
 </style>

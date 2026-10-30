@@ -32,7 +32,7 @@ defineProps({ vehicle: { type: Object, required: true } })
   width: 30%; /* 适当缩小左侧三个徽章的显示大小 */
   z-index: 2;
 }
-.vb-badge { width: 100%; height: auto; display: block; filter: drop-shadow(0 3px 8px rgba(23,34,59,.35)); }
+.vb-badge { opacity: .6; /* 透明度：1=不透明，数值越小越透明 */ width: 100%; height: auto; display: block; filter: drop-shadow(0 3px 8px rgba(23,34,59,.35)); }
 .vb-badge-owner { width: 66.6%; }
 .vb-badge-lowkm { width: 80%; }
 
@@ -41,6 +41,7 @@ defineProps({ vehicle: { type: Object, required: true } })
   width: 39%; height: auto;
   transform: translate(-50%, -50%) rotate(-15deg);
   filter: drop-shadow(0 6px 16px rgba(0,0,0,.4));
+  opacity: 1; /* 透明度：1=不透明，数值越小越透明 */
   z-index: 3;
 }
 </style>

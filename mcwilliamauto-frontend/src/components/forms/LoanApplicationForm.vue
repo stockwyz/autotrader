@@ -2,176 +2,176 @@
   <el-form ref="formRef" :model="form" :rules="rules" label-position="top" @submit.prevent="onSubmit">
     <h3 class="section-title">Personal Information</h3>
     <el-row :gutter="16">
-      <el-col :span="12">
+      <el-col :xs="24" :sm="12">
         <el-form-item label="Salutation">
           <el-select v-model="form.salutation" clearable placeholder="Salutation" style="width:100%">
             <el-option v-for="o in salutationOptions" :key="o" :label="o" :value="o" />
           </el-select>
         </el-form-item>
       </el-col>
-      <el-col :span="12">
+      <el-col :xs="24" :sm="12">
         <el-form-item label="Gender">
           <el-select v-model="form.gender" clearable placeholder="Gender" style="width:100%">
             <el-option v-for="o in genderOptions" :key="o" :label="o" :value="o" />
           </el-select>
         </el-form-item>
       </el-col>
-      <el-col :span="12">
+      <el-col :xs="24" :sm="12">
         <el-form-item label="First Name" prop="firstName"><el-input v-model="form.firstName" /></el-form-item>
       </el-col>
-      <el-col :span="12">
+      <el-col :xs="24" :sm="12">
         <el-form-item label="Last Name" prop="lastName"><el-input v-model="form.lastName" /></el-form-item>
       </el-col>
-      <el-col :span="12">
+      <el-col :xs="24" :sm="12">
         <el-form-item label="Phone" prop="phone">
           <el-input v-model="form.phone" placeholder="e.g. 416-555-1234 or 138-1234-5678" />
         </el-form-item>
       </el-col>
-      <el-col :span="12">
+      <el-col :xs="24" :sm="12">
         <el-form-item label="Email" prop="email"><el-input v-model="form.email" /></el-form-item>
       </el-col>
-      <el-col :span="12">
+      <el-col :xs="24" :sm="12">
         <el-form-item label="Marital Status" prop="maritalStatus">
           <el-select v-model="form.maritalStatus" placeholder="Marital Status" style="width:100%">
             <el-option v-for="o in maritalStatusOptions" :key="o" :label="o" :value="o" />
           </el-select>
         </el-form-item>
       </el-col>
-      <el-col :span="12">
+      <el-col :xs="24" :sm="12">
         <el-form-item label="Birth Date  Format (yyyy-mm-dd)" prop="dateOfBirth">
           <el-date-picker v-model="form.dateOfBirth" type="date" value-format="YYYY-MM-DD" placeholder="yyyy-mm-dd" style="width:100%" />
         </el-form-item>
       </el-col>
-      <el-col :span="12">
+      <el-col :xs="24" :sm="12">
         <el-form-item label="SIN"><el-input v-model="form.sin" maxlength="11" /></el-form-item>
       </el-col>
     </el-row>
 
     <h3 class="section-title">Current Address</h3>
     <el-row :gutter="16">
-      <el-col :span="12">
+      <el-col :xs="24" :sm="12">
         <el-form-item label="Address" prop="address"><el-input v-model="form.address" /></el-form-item>
       </el-col>
-      <el-col :span="12">
+      <el-col :xs="24" :sm="12">
         <el-form-item label="City" prop="city"><el-input v-model="form.city" /></el-form-item>
       </el-col>
-      <el-col :span="12">
+      <el-col :xs="24" :sm="12">
         <el-form-item label="Province" prop="province">
           <el-select v-model="form.province" placeholder="Province" style="width:100%">
             <el-option v-for="p in provinceOptions" :key="p" :label="p" :value="p" />
           </el-select>
         </el-form-item>
       </el-col>
-      <el-col :span="12">
+      <el-col :xs="24" :sm="12">
         <el-form-item label="Postal Code" prop="postalCode"><el-input v-model="form.postalCode" /></el-form-item>
       </el-col>
-      <el-col :span="12">
+      <el-col :xs="24" :sm="12">
         <el-form-item label="Duration Year" prop="addressDurationYears"><el-input-number v-model="form.addressDurationYears" style="width:100%" :controls="false" :min="0" /></el-form-item>
       </el-col>
-      <el-col :span="12">
+      <el-col :xs="24" :sm="12">
         <el-form-item label="Duration Month" prop="addressDurationMonths"><el-input-number v-model="form.addressDurationMonths" style="width:100%" :controls="false" :min="0" :max="11" /></el-form-item>
       </el-col>
     </el-row>
 
     <h3 class="section-title">Home Rent/Mortgage Information</h3>
     <el-row :gutter="16">
-      <el-col :span="12">
+      <el-col :xs="24" :sm="12">
         <el-form-item label="Home Status" prop="homeStatus">
           <el-select v-model="form.homeStatus" placeholder="Home Status" style="width:100%">
             <el-option v-for="o in homeStatusOptions" :key="o" :label="o" :value="o" />
           </el-select>
         </el-form-item>
       </el-col>
-      <el-col :span="12">
+      <el-col :xs="24" :sm="12">
         <el-form-item label="Monthly Payment" prop="monthlyHousingPayment"><el-input-number v-model="form.monthlyHousingPayment" style="width:100%" :controls="false" :min="0" /></el-form-item>
       </el-col>
     </el-row>
 
     <h3 class="section-title">Current Employment</h3>
     <el-row :gutter="16">
-      <el-col :span="12">
+      <el-col :xs="24" :sm="12">
         <el-form-item label="Type" prop="employmentType">
           <el-select v-model="form.employmentType" placeholder="Type" style="width:100%">
             <el-option v-for="o in employmentTypeOptions" :key="o" :label="o" :value="o" />
           </el-select>
         </el-form-item>
       </el-col>
-      <el-col :span="12">
+      <el-col :xs="24" :sm="12">
         <el-form-item label="Employer" prop="employerName"><el-input v-model="form.employerName" /></el-form-item>
       </el-col>
-      <el-col :span="12">
+      <el-col :xs="24" :sm="12">
         <el-form-item label="Occupation" prop="occupation"><el-input v-model="form.occupation" /></el-form-item>
       </el-col>
-      <el-col :span="12">
+      <el-col :xs="24" :sm="12">
         <el-form-item label="Employment Address" prop="employmentAddress"><el-input v-model="form.employmentAddress" /></el-form-item>
       </el-col>
-      <el-col :span="12">
+      <el-col :xs="24" :sm="12">
         <el-form-item label="City" prop="employmentCity"><el-input v-model="form.employmentCity" /></el-form-item>
       </el-col>
-      <el-col :span="12">
+      <el-col :xs="24" :sm="12">
         <el-form-item label="Province" prop="employmentProvince">
           <el-select v-model="form.employmentProvince" placeholder="Province" style="width:100%">
             <el-option v-for="p in provinceOptions" :key="p" :label="p" :value="p" />
           </el-select>
         </el-form-item>
       </el-col>
-      <el-col :span="12">
+      <el-col :xs="24" :sm="12">
         <el-form-item label="Postal Code" prop="employmentPostalCode"><el-input v-model="form.employmentPostalCode" /></el-form-item>
       </el-col>
-      <el-col :span="12">
+      <el-col :xs="24" :sm="12">
         <el-form-item label="Phone" prop="employmentPhone"><el-input v-model="form.employmentPhone" /></el-form-item>
       </el-col>
-      <el-col :span="12">
+      <el-col :xs="24" :sm="12">
         <el-form-item label="Gross Income" prop="grossIncome"><el-input-number v-model="form.grossIncome" style="width:100%" :controls="false" :min="0" /></el-form-item>
       </el-col>
-      <el-col :span="12">
+      <el-col :xs="24" :sm="12">
         <el-form-item label="Duration Year" prop="employmentDurationYears"><el-input-number v-model="form.employmentDurationYears" style="width:100%" :controls="false" :min="0" /></el-form-item>
       </el-col>
-      <el-col :span="12">
+      <el-col :xs="24" :sm="12">
         <el-form-item label="Duration Month" prop="employmentDurationMonths"><el-input-number v-model="form.employmentDurationMonths" style="width:100%" :controls="false" :min="0" :max="11" /></el-form-item>
       </el-col>
     </el-row>
 
     <h3 class="section-title">Previous Employment</h3>
     <el-row :gutter="16">
-      <el-col :span="12">
+      <el-col :xs="24" :sm="12">
         <el-form-item label="Previous Employer"><el-input v-model="form.previousEmployer" /></el-form-item>
       </el-col>
-      <el-col :span="12">
+      <el-col :xs="24" :sm="12">
         <el-form-item label="Phone"><el-input v-model="form.previousEmployerPhone" /></el-form-item>
       </el-col>
-      <el-col :span="12">
+      <el-col :xs="24" :sm="12">
         <el-form-item label="Duration Year"><el-input-number v-model="form.previousEmploymentDurationYears" style="width:100%" :controls="false" :min="0" /></el-form-item>
       </el-col>
-      <el-col :span="12">
+      <el-col :xs="24" :sm="12">
         <el-form-item label="Duration Month"><el-input-number v-model="form.previousEmploymentDurationMonths" style="width:100%" :controls="false" :min="0" :max="11" /></el-form-item>
       </el-col>
     </el-row>
 
     <h3 class="section-title">Other Information</h3>
     <el-row :gutter="16">
-      <el-col :span="12">
+      <el-col :xs="24" :sm="12">
         <el-form-item label="Previous Bankruptcy?">
           <el-select v-model="form.previousBankruptcy" clearable placeholder="Previous Bankruptcy?" style="width:100%">
             <el-option v-for="o in yesNoOptions" :key="o" :label="o" :value="o" />
           </el-select>
         </el-form-item>
       </el-col>
-      <el-col :span="12">
+      <el-col :xs="24" :sm="12">
         <el-form-item label="Previous Repossession?">
           <el-select v-model="form.previousRepossession" clearable placeholder="Previous Repossession?" style="width:100%">
             <el-option v-for="o in yesNoOptions" :key="o" :label="o" :value="o" />
           </el-select>
         </el-form-item>
       </el-col>
-      <el-col :span="12">
+      <el-col :xs="24" :sm="12">
         <el-form-item label="Is Cosigner Available?">
           <el-select v-model="form.cosignerAvailable" clearable placeholder="Is Cosigner Available?" style="width:100%">
             <el-option v-for="o in yesNoOptions" :key="o" :label="o" :value="o" />
           </el-select>
         </el-form-item>
       </el-col>
-      <el-col :span="12">
+      <el-col :xs="24" :sm="12">
         <el-form-item label="Please rate your credit">
           <el-select v-model="form.creditRating" clearable placeholder="Please rate your credit" style="width:100%">
             <el-option v-for="o in creditRatingOptions" :key="o" :label="o" :value="o" />
@@ -182,35 +182,35 @@
 
     <h3 class="section-title">Desired Vehicle</h3>
     <el-row :gutter="16">
-      <el-col :span="12">
+      <el-col :xs="24" :sm="12">
         <el-form-item label="Make"><el-input v-model="form.desiredMake" /></el-form-item>
       </el-col>
-      <el-col :span="12">
+      <el-col :xs="24" :sm="12">
         <el-form-item label="Model"><el-input v-model="form.desiredModel" /></el-form-item>
       </el-col>
-      <el-col :span="12">
+      <el-col :xs="24" :sm="12">
         <el-form-item label="Year"><el-input-number v-model="form.desiredYear" style="width:100%" :controls="false" /></el-form-item>
       </el-col>
-      <el-col :span="12">
+      <el-col :xs="24" :sm="12">
         <el-form-item label="VIN"><el-input v-model="form.desiredVin" maxlength="17" /></el-form-item>
       </el-col>
     </el-row>
 
     <h3 class="section-title">Trade In</h3>
     <el-row :gutter="16">
-      <el-col :span="12">
+      <el-col :xs="24" :sm="12">
         <el-form-item label="Trade-In Make"><el-input v-model="form.tradeMake" /></el-form-item>
       </el-col>
-      <el-col :span="12">
+      <el-col :xs="24" :sm="12">
         <el-form-item label="Trade-In Model"><el-input v-model="form.tradeModel" /></el-form-item>
       </el-col>
-      <el-col :span="12">
+      <el-col :xs="24" :sm="12">
         <el-form-item label="Trade-In Year"><el-input-number v-model="form.tradeYear" style="width:100%" :controls="false" /></el-form-item>
       </el-col>
-      <el-col :span="12">
+      <el-col :xs="24" :sm="12">
         <el-form-item label="Trade-In Kilometers"><el-input-number v-model="form.tradeKm" style="width:100%" :controls="false" :min="0" /></el-form-item>
       </el-col>
-      <el-col :span="24">
+      <el-col :xs="24" :sm="24">
         <el-form-item label="Questions or Comments">
           <el-input v-model="form.message" type="textarea" rows="4" />
         </el-form-item>

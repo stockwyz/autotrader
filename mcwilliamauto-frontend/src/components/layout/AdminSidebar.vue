@@ -1,10 +1,11 @@
 <template>
-  <div class="sidebar">
+  <div class="sidebar" :class="{ 'mobile-open': mobileOpen }">
     <div class="logo">
       <div class="mark">{{ dealerInitial }}</div>
       <span>{{ dealerInfo?.name || 'McWilliam Auto' }} <small>Admin</small></span>
     </div>
-    <el-scrollbar class="menu-scroll">
+    <button type="button" class="admin-menu-toggle" :aria-expanded="mobileOpen" aria-controls="admin-navigation" @click="mobileOpen = !mobileOpen">{{ mobileOpen ? 'Close menu' : '☰ Admin menu' }}</button>
+    <el-scrollbar class="menu-scroll" id="admin-navigation">
       <el-menu router :default-active="$route.path" :default-openeds="['inventory','leads','content','dict','settings']"
                background-color="#17223B" text-color="#B9C1D6" active-text-color="#fff">
         <el-menu-item index="/admin/vehicles">
@@ -56,13 +57,17 @@
 </template>
 
 <script setup>
-import { computed, onMounted } from 'vue'
+import { computed, onMounted, ref, watch } from 'vue'
+import { useRoute } from 'vue-router'
 import { useRouter } from 'vue-router'
 import { storeToRefs } from 'pinia'
 import { useUserStore } from '@/store/useUserStore'
 import { useDealerStore } from '@/store/useDealerStore'
 
 const router = useRouter()
+const route = useRoute()
+const mobileOpen = ref(false)
+watch(() => route.fullPath, () => { mobileOpen.value = false })
 const userStore = useUserStore()
 const dealerStore = useDealerStore()
 const { info: dealerInfo } = storeToRefs(dealerStore)
@@ -89,4 +94,14 @@ function onLogout() {
 .menu-scroll { flex: 1; }
 .logout-btn { margin: 16px; color: #B9C1D6 !important; }
 :deep(.el-menu) { border-right: none; }
+
+.admin-menu-toggle { display: none; }
+@media (max-width: 767px) {
+  .sidebar { position: sticky; top: 0; width: 100%; z-index: 100; }
+  .logo { padding: 12px 16px; }
+  .admin-menu-toggle { display: block; padding: 12px 16px; text-align: left; color: #fff; background: #17223B; border: 0; font: inherit; cursor: pointer; }
+  .menu-scroll, .logout-btn { display: none; }
+  .mobile-open .menu-scroll { display: block; max-height: 55vh; overflow-y: auto; }
+  .mobile-open .logout-btn { display: inline-flex; }
+}
 </style>

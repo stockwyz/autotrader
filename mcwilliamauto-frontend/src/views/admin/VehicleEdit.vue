@@ -9,19 +9,19 @@
       <el-card style="margin-bottom:16px">
         <h3>Basic Information</h3>
         <el-row :gutter="16">
-          <el-col :span="8">
+          <el-col :xs="24" :sm="8">
             <el-form-item label="Stock Number">
               <el-input v-model="form.stockNo" disabled :placeholder="isEdit ? '' : 'Auto-generated on save'" />
             </el-form-item>
           </el-col>
-          <el-col :span="8">
+          <el-col :xs="24" :sm="8">
             <el-form-item label="VIN" prop="vin"><el-input v-model="form.vin" maxlength="30" show-word-limit /></el-form-item>
           </el-col>
-          <el-col :span="8">
+          <el-col :xs="24" :sm="8">
             <el-form-item label="Title" prop="title"><el-input v-model="form.title" maxlength="150" show-word-limit placeholder="e.g. 2022 Ram 1500 Limited 4x4" /></el-form-item>
           </el-col>
 
-          <el-col :span="8">
+          <el-col :xs="24" :sm="8">
             <el-form-item label="Make" prop="makeId">
               <el-select v-model="form.makeId" @change="onMakeChange" style="width:100%" filterable>
                 <el-option v-for="m in makes" :key="m.id" :label="m.name" :value="m.id">
@@ -31,14 +31,14 @@
               </el-select>
             </el-form-item>
           </el-col>
-          <el-col :span="8">
+          <el-col :xs="24" :sm="8">
             <el-form-item label="Model" prop="modelId">
               <el-select v-model="form.modelId" style="width:100%" filterable>
                 <el-option v-for="m in models" :key="m.id" :label="m.name" :value="m.id" />
               </el-select>
             </el-form-item>
           </el-col>
-          <el-col :span="8">
+          <el-col :xs="24" :sm="8">
             <el-form-item label="Year" prop="year">
               <el-select v-model="form.year" style="width:100%" filterable>
                 <el-option v-for="y in yearOptions" :key="y" :label="y" :value="y" />
@@ -46,7 +46,7 @@
             </el-form-item>
           </el-col>
 
-          <el-col :span="8">
+          <el-col :xs="24" :sm="8">
             <el-form-item label="Body Style" prop="bodyStyleId">
               <el-select v-model="form.bodyStyleId" style="width:100%" filterable>
                 <el-option v-for="b in bodyStyles" :key="b.id" :label="b.name" :value="b.id">
@@ -56,14 +56,14 @@
               </el-select>
             </el-form-item>
           </el-col>
-          <el-col :span="8">
+          <el-col :xs="24" :sm="8">
             <el-form-item label="Transmission" prop="transmissionId">
               <el-select v-model="form.transmissionId" style="width:100%">
                 <el-option v-for="t in transmissions" :key="t.id" :label="t.name" :value="t.id" />
               </el-select>
             </el-form-item>
           </el-col>
-          <el-col :span="8">
+          <el-col :xs="24" :sm="8">
             <el-form-item label="Engine" prop="engineId">
               <el-select v-model="form.engineId" style="width:100%">
                 <el-option v-for="e in engines" :key="e.id" :label="e.name" :value="e.id" />
@@ -71,62 +71,62 @@
             </el-form-item>
           </el-col>
 
-          <el-col :span="8">
+          <el-col :xs="24" :sm="8">
             <el-form-item label="Engine Size"><el-input v-model="form.engineSize" maxlength="20" show-word-limit placeholder="e.g. 5.7 l" /></el-form-item>
           </el-col>
-          <el-col :span="8">
+          <el-col :xs="24" :sm="8">
             <el-form-item label="Fuel Type" prop="fuelTypeId">
               <el-select v-model="form.fuelTypeId" style="width:100%">
                 <el-option v-for="f in fuelTypes" :key="f.id" :label="f.name" :value="f.id" />
               </el-select>
             </el-form-item>
           </el-col>
-          <el-col :span="8">
+          <el-col :xs="24" :sm="8">
             <el-form-item label="Driveline"><el-input v-model="form.driveline" maxlength="20" show-word-limit placeholder="4X4/FWD/AWD" /></el-form-item>
           </el-col>
 
-          <el-col :span="8">
+          <el-col :xs="24" :sm="8">
             <el-form-item label="Exterior Colour">
               <el-select v-model="form.exteriorColorId" style="width:100%" clearable>
                 <el-option v-for="c in colors" :key="c.id" :label="c.name" :value="c.id" />
               </el-select>
             </el-form-item>
           </el-col>
-          <el-col :span="8">
+          <el-col :xs="24" :sm="8">
             <el-form-item label="Interior Colour">
               <el-select v-model="form.interiorColorId" style="width:100%" clearable>
                 <el-option v-for="c in colors" :key="c.id" :label="c.name" :value="c.id" />
               </el-select>
             </el-form-item>
           </el-col>
-          <el-col :span="8" />
+          <el-col :xs="24" :sm="8" />
 
-          <el-col :span="8">
+          <el-col :xs="24" :sm="8">
             <el-form-item label="Doors"><el-input-number v-model="form.doors" style="width:100%" :controls="false" /></el-form-item>
           </el-col>
-          <el-col :span="8">
+          <el-col :xs="24" :sm="8">
             <el-form-item label="Passengers"><el-input-number v-model="form.passengers" style="width:100%" :controls="false" /></el-form-item>
           </el-col>
-          <el-col :span="8">
+          <el-col :xs="24" :sm="8">
             <el-form-item label="Odometer (Km)"><el-input-number v-model="form.odometerKm" style="width:100%" :controls="false" /></el-form-item>
           </el-col>
 
-          <el-col :span="8">
+          <el-col :xs="24" :sm="8">
             <el-form-item label="City Fuel Consumption"><el-input v-model="form.cityFuelConsumption" maxlength="20" show-word-limit placeholder="13.8L/100Km" /></el-form-item>
           </el-col>
-          <el-col :span="8">
+          <el-col :xs="24" :sm="8">
             <el-form-item label="Hwy Fuel Consumption"><el-input v-model="form.hwyFuelConsumption" maxlength="20" show-word-limit placeholder="10.7L/100Km" /></el-form-item>
           </el-col>
-          <el-col :span="8">
+          <el-col :xs="24" :sm="8">
             <el-form-item label="Price ($)" prop="price"><el-input-number v-model="form.price" style="width:100%" :controls="false" /></el-form-item>
           </el-col>
 
-          <el-col :span="24"><el-form-item label="Description"><el-input v-model="form.description" type="textarea" rows="3" /></el-form-item></el-col>
+          <el-col :xs="24" :sm="24"><el-form-item label="Description"><el-input v-model="form.description" type="textarea" rows="3" /></el-form-item></el-col>
 
-          <el-col :span="6"><el-form-item label="One Owner"><el-switch v-model="form.isOneOwner" /></el-form-item></el-col>
-          <el-col :span="6"><el-form-item label="Low KM"><el-switch v-model="form.isLowKm" /></el-form-item></el-col>
-          <el-col :span="6"><el-form-item label="Featured"><el-switch v-model="form.isFeatured" /></el-form-item></el-col>
-          <el-col :span="6"><el-form-item label="Sold"><el-switch v-model="form.isSold" /></el-form-item></el-col>
+          <el-col :xs="24" :sm="6"><el-form-item label="One Owner"><el-switch v-model="form.isOneOwner" /></el-form-item></el-col>
+          <el-col :xs="24" :sm="6"><el-form-item label="Low KM"><el-switch v-model="form.isLowKm" /></el-form-item></el-col>
+          <el-col :xs="24" :sm="6"><el-form-item label="Featured"><el-switch v-model="form.isFeatured" /></el-form-item></el-col>
+          <el-col :xs="24" :sm="6"><el-form-item label="Sold"><el-switch v-model="form.isSold" /></el-form-item></el-col>
         </el-row>
       </el-card>
 

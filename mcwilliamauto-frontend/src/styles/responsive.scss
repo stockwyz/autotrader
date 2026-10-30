@@ -1,0 +1,50 @@
+// Keep desktop styling untouched. These rules apply only to smaller viewports.
+@media (max-width: 1024px) {
+  html[data-site-theme] .container { padding-inline: 24px; }
+  html[data-site-theme] .grid > *,
+  html[data-site-theme] .layout > *,
+  html[data-site-theme] .footer-grid > * { min-width: 0; }
+}
+
+@media (max-width: 767px) {
+  #app .admin-content { margin-left: 0; padding: 16px; min-width: 0; }
+  .admin-content .admin-page { padding: 0; }
+  .admin-content .el-row { row-gap: 16px; }
+  .admin-content .el-form-item__content { min-width: 0; }
+  .admin-content .el-table { max-width: 100%; }
+  .admin-content .dynamic-row { flex-wrap: wrap; gap: 8px; }
+  .admin-content .dynamic-row .el-input { flex-basis: 100% !important; margin: 0 !important; }
+  .el-dialog { max-width: calc(100vw - 24px); }
+  .el-message-box { max-width: calc(100vw - 24px); }
+}
+
+@media (max-width: 640px) {
+  html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+  html[data-site-theme] .container { padding-inline: 16px; }
+  html[data-site-theme] h1 { font-size: 28px; line-height: 1.2; overflow-wrap: anywhere; }
+  html[data-site-theme] .section-title { font-size: 28px; line-height: 1.2; }
+  html[data-site-theme] .section-subtitle { font-size: 16px; margin-bottom: 24px; }
+  html[data-site-theme] .eyebrow-label { font-size: 12px; line-height: 1.5; }
+  html[data-site-theme] .el-row { row-gap: 20px; }
+  html[data-site-theme] .el-col { min-width: 0; }
+  html[data-site-theme] .el-form .el-row { row-gap: 0; }
+  html[data-site-theme] .el-card__body { padding: 18px 16px; }
+  html[data-site-theme] .el-form-item__content { min-width: 0; }
+  // 16px input text prevents iOS from zooming the viewport when a field is focused.
+  html[data-site-theme] .el-input__inner,
+  html[data-site-theme] .el-textarea__inner,
+  html[data-site-theme] .el-select__placeholder,
+  html[data-site-theme] .el-select__selected-item { font-size: 16px !important; }
+  html[data-site-theme] .el-button { max-width: 100%; white-space: normal; line-height: 1.4; }
+  html[data-site-theme] .el-pagination { flex-wrap: wrap; }
+  html[data-site-theme] .el-pager li { min-width: 28px; }
+  html[data-site-theme] iframe,
+  html[data-site-theme] video { max-width: 100%; }
+  html[data-site-theme] .rte-content { overflow-wrap: anywhere; }
+  html[data-site-theme] .rte-content img { max-width: 100% !important; height: auto !important; margin-inline: 0; }
+  html[data-site-theme] .rte-content table { display: block; max-width: 100%; overflow-x: auto; }
+  html[data-site-theme] .rte-content iframe { width: 100%; }
+  html[data-site-theme] .resp-wrap { padding-top: 32px; }
+  html[data-site-theme] .resp-card .sum-row { flex-wrap: wrap; }
+  html[data-site-theme] .resp-card .actions > * { width: 100%; }
+}

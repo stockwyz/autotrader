@@ -132,4 +132,12 @@ watch(() => props.modelValue, (val) => Object.assign(local, val))
 .hfilter-grid :deep(.el-input-number .el-input__inner) { text-align: left; }
 .search-btn-group { display: flex; gap: 8px; }
 .search-btn-group .el-button { flex: 1; margin-left: 0; }
+
+@media (max-width: 1024px) { .hfilter-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+@media (max-width: 640px) {
+  .hfilter { padding: 18px 14px; }
+  .hfilter-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .search-btn-group { grid-column: 1 / -1; }
+}
+@media (max-width: 360px) { .hfilter-grid { grid-template-columns: 1fr; } }
 </style>

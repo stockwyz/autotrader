@@ -18,7 +18,7 @@
 
     <div class="hero-inner container">
       <div class="eyebrow">WINNIPEG · ONE-PRICE USED CAR DEALER</div>
-      <h1>Get the vehicle you need,<br>with the payments you can afford.</h1>
+      <h1>Get the vehicle you need, <br>with the payments you can afford.</h1>
       <p class="lede">Every vehicle is clearly priced, no haggling, no games. We just want car buying to be simple.</p>
       <div class="chips">
         <span v-if="vehicleTotal !== null" class="chip">{{ vehicleTotal }} Vehicles</span>
@@ -106,4 +106,21 @@ onMounted(async () => {
 .chip { font-size: 17px; font-weight: 700; border: 1px solid var(--s-line2); background: #fff; color: var(--s-ink); padding: 8px 16px; border-radius: 99px; }
 .chip { transition: color .15s; cursor: default; pointer-events: auto; }
 .chip:hover { color: var(--s-primary); }
+
+@media (max-width: 1024px) {
+  .hero-inner { width: 100%; padding: 64px 32px 96px; }
+  .hero h1 { font-size: 48px; line-height: 1.08; }
+}
+@media (max-width: 640px) {
+  .hero { min-height: 0; }
+  .hero-inner { padding: 40px 16px 48px; }
+  .hero h1 { font-size: clamp(30px, 8vw, 42px); line-height: 1.1; margin: 16px 0; overflow-wrap: anywhere; }
+  .hero h1 br { display: none; }
+  .eyebrow { font-size: 10px; line-height: 1.5; letter-spacing: .14em; max-width: 30em; }
+  .lede { font-size: 16px; margin-top: 18px; }
+  .chips { gap: 8px; margin-top: 20px; }
+  .chip { padding: 6px 10px; font-size: 12px; }
+  .hero-slide-bg { min-height: 100%; }
+  .hero::before { background: rgba(255,255,255,.86); }
+}
 </style>

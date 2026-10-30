@@ -4,11 +4,11 @@
     <p class="panel-subtitle">Default parameters used by the public loan calculator and bi-weekly payment estimates on vehicle listings</p>
     <el-form :model="setting" label-position="top" v-loading="loading">
       <el-row :gutter="20">
-        <el-col :span="12"><el-form-item label="Default Annual Interest Rate (%)"><el-input-number v-model="setting.defaultInterestRate" :step="0.01" style="width:100%" :controls="false" /></el-form-item></el-col>
-        <el-col :span="12"><el-form-item label="Default Term (months)"><el-input-number v-model="setting.defaultTermMonths" style="width:100%" :controls="false" /></el-form-item></el-col>
-        <el-col :span="12"><el-form-item label="Minimum Term (months)"><el-input-number v-model="setting.minTermMonths" style="width:100%" :controls="false" /></el-form-item></el-col>
-        <el-col :span="12"><el-form-item label="Maximum Term (months)"><el-input-number v-model="setting.maxTermMonths" style="width:100%" :controls="false" /></el-form-item></el-col>
-        <el-col :span="12"><el-form-item label="Minimum Down Payment (%)"><el-input-number v-model="setting.minDownPaymentPct" :step="0.01" style="width:100%" :controls="false" /></el-form-item></el-col>
+        <el-col :xs="24" :sm="12"><el-form-item label="Default Annual Interest Rate (%)"><el-input-number v-model="setting.defaultInterestRate" :step="0.01" style="width:100%" :controls="false" /></el-form-item></el-col>
+        <el-col :xs="24" :sm="12"><el-form-item label="Default Term (months)"><el-input-number v-model="setting.defaultTermMonths" style="width:100%" :controls="false" /></el-form-item></el-col>
+        <el-col :xs="24" :sm="12"><el-form-item label="Minimum Term (months)"><el-input-number v-model="setting.minTermMonths" style="width:100%" :controls="false" /></el-form-item></el-col>
+        <el-col :xs="24" :sm="12"><el-form-item label="Maximum Term (months)"><el-input-number v-model="setting.maxTermMonths" style="width:100%" :controls="false" /></el-form-item></el-col>
+        <el-col :xs="24" :sm="12"><el-form-item label="Minimum Down Payment (%)"><el-input-number v-model="setting.minDownPaymentPct" :step="0.01" style="width:100%" :controls="false" /></el-form-item></el-col>
       </el-row>
       <el-button type="primary" :loading="saving" @click="save">Save Settings</el-button>
     </el-form>

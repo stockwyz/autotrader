@@ -43,4 +43,6 @@ async function onSubmit() {
 <style scoped>
 .login-page { display: flex; align-items: center; justify-content: center; height: 80vh; }
 .login-card { width: 360px; padding: 20px; }
+
+@media (max-width: 640px) { .login-page { padding: 16px; min-height: 70vh; height: auto; } .login-card { width: 100%; max-width: 360px; padding: 8px; } }
 </style>

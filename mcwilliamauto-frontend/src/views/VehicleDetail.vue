@@ -21,7 +21,7 @@
     </div>
 
     <el-row :gutter="32" style="margin-top:20px">
-      <el-col :span="16">
+      <el-col :xs="24" :sm="24" :md="16">
         <ImageGallery :images="vehicle.images" :vehicle="vehicle" />
         <video v-if="vehicle.videoUrl" :src="vehicle.videoUrl" controls class="vehicle-video" />
         <SpecTable :v="vehicle" />
@@ -32,7 +32,7 @@
         <OptionsAccordion :options="vehicle.options" style="margin-top:24px" />
         <FeatureCategoryList :features="vehicle.features" style="margin-top:24px" />
       </el-col>
-      <el-col :span="8">
+      <el-col :xs="24" :sm="24" :md="8">
         <el-card>
           <h3>Request More Information</h3>
           <InquiryForm :vehicle-id="vehicle.id" />
@@ -122,4 +122,17 @@ watch(() => route.params.id, fetchData)
 .price-row { display: flex; align-items: baseline; gap: 16px; }
 .price { font-size: 28px; font-weight: 800; color: var(--s-primary); }
 .biweekly { color: var(--s-muted); }
+
+@media (max-width: 991px) {
+  .detail-page > .el-row { row-gap: 24px; }
+  .detail-page > .el-row > .el-col { min-width: 0; }
+}
+@media (max-width: 640px) {
+  .nav-links { gap: 12px; flex-wrap: wrap; font-size: 14px; }
+  .nav-links > a { margin-left: 0; }
+  .title-row h1 { font-size: 28px; line-height: 1.2; overflow-wrap: anywhere; }
+  .price-row { flex-wrap: wrap; gap: 4px 16px; margin-top: 12px; }
+  .biweekly { font-size: 14px; }
+  .detail-page h3 { font-size: 21px; line-height: 1.3; }
+}
 </style>

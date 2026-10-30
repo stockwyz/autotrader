@@ -82,4 +82,12 @@ const formattedHours = computed(() => {
 .social-icon svg { width: 17px; height: 17px; }
 .social-icon:hover { background: var(--s-primary); color: #fff; border-color: var(--s-primary); }
 .copyright { border-top: 1px solid var(--s-line); text-align: center; padding: 20px; font-size: 12px; color: var(--s-faint); }
+
+@media (max-width: 1024px) { .footer-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px; } }
+@media (max-width: 640px) {
+  .footer { margin-top: 40px; padding-top: 32px; }
+  .footer-grid { grid-template-columns: 1fr; gap: 20px; }
+  .flogo span { overflow-wrap: anywhere; }
+  .flogo .mark { flex-shrink: 0; }
+}
 </style>

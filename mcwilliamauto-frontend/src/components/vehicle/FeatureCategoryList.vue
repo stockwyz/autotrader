@@ -40,4 +40,6 @@ function categoryLabel(c) { return labels[c] || c }
 .category-block h4 { margin-bottom: 6px; color: var(--s-text2); }
 .category-block ul { columns: 2; padding-left: 18px; }
 .category-block li { margin-bottom: 4px; font-size: 14px; }
+
+@media (max-width: 640px) { .category-block ul { columns: 1; } }
 </style>

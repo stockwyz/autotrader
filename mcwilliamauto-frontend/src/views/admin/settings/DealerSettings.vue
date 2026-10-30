@@ -17,16 +17,16 @@
           </div>
         </el-form-item>
         <el-row :gutter="20">
-          <el-col :span="12"><el-form-item label="Dealer Name"><el-input v-model="info.name" /></el-form-item></el-col>
-          <el-col :span="12"><el-form-item label="Phone"><el-input v-model="info.phone" /></el-form-item></el-col>
-          <el-col :span="12"><el-form-item label="Address"><el-input v-model="info.address" /></el-form-item></el-col>
-          <el-col :span="12"><el-form-item label="Website URL"><el-input v-model="info.websiteUrl" placeholder="e.g. mcwilliamauto.ca" /></el-form-item></el-col>
-          <el-col :span="12"><el-form-item label="Email"><el-input v-model="info.email" /></el-form-item></el-col>
-          <el-col :span="12"><el-form-item label="Dealer Permit No."><el-input v-model="info.dealerPermitNo" /></el-form-item></el-col>
-          <el-col :span="12"><el-form-item label="Facebook URL"><el-input v-model="info.facebookUrl" /></el-form-item></el-col>
-          <el-col :span="12"><el-form-item label="Instagram URL"><el-input v-model="info.instagramUrl" /></el-form-item></el-col>
-          <el-col :span="12"><el-form-item label="Latitude"><el-input-number v-model="info.latitude" style="width:100%" :controls="false" /></el-form-item></el-col>
-          <el-col :span="12"><el-form-item label="Longitude"><el-input-number v-model="info.longitude" style="width:100%" :controls="false" /></el-form-item></el-col>
+          <el-col :xs="24" :sm="12"><el-form-item label="Dealer Name"><el-input v-model="info.name" /></el-form-item></el-col>
+          <el-col :xs="24" :sm="12"><el-form-item label="Phone"><el-input v-model="info.phone" /></el-form-item></el-col>
+          <el-col :xs="24" :sm="12"><el-form-item label="Address"><el-input v-model="info.address" /></el-form-item></el-col>
+          <el-col :xs="24" :sm="12"><el-form-item label="Website URL"><el-input v-model="info.websiteUrl" placeholder="e.g. mcwilliamauto.ca" /></el-form-item></el-col>
+          <el-col :xs="24" :sm="12"><el-form-item label="Email"><el-input v-model="info.email" /></el-form-item></el-col>
+          <el-col :xs="24" :sm="12"><el-form-item label="Dealer Permit No."><el-input v-model="info.dealerPermitNo" /></el-form-item></el-col>
+          <el-col :xs="24" :sm="12"><el-form-item label="Facebook URL"><el-input v-model="info.facebookUrl" /></el-form-item></el-col>
+          <el-col :xs="24" :sm="12"><el-form-item label="Instagram URL"><el-input v-model="info.instagramUrl" /></el-form-item></el-col>
+          <el-col :xs="24" :sm="12"><el-form-item label="Latitude"><el-input-number v-model="info.latitude" style="width:100%" :controls="false" /></el-form-item></el-col>
+          <el-col :xs="24" :sm="12"><el-form-item label="Longitude"><el-input-number v-model="info.longitude" style="width:100%" :controls="false" /></el-form-item></el-col>
         </el-row>
         <el-button type="primary" :loading="savingInfo" @click="saveInfo">Save Dealer Info</el-button>
       </el-form>

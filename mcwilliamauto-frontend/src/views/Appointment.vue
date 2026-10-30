@@ -460,4 +460,23 @@ onMounted(async () => {
   .slot-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
   .done-card { padding: 32px 22px; }
 }
+
+@media (max-width: 640px) {
+  .appt-wrap.container { padding-inline: 16px; }
+  .main-col, .side-col { min-width: 0; flex-basis: 100%; width: 100%; max-width: none; }
+  .card { padding: 18px 14px; }
+  .field-grid { grid-template-columns: minmax(0, 1fr); }
+  .step-head h2 { font-size: 20px; }
+  .step-no { flex-shrink: 0; }
+  .dt-row { gap: 24px; }
+  .cal-grid { gap: 4px; }
+  .cal-day { font-size: 14px; }
+  .legend { gap: 10px; flex-wrap: wrap; }
+  .sum-box { padding: 18px 14px; }
+  .sum-row { flex-wrap: wrap; gap: 4px 12px; }
+  .sum-row b { overflow-wrap: anywhere; }
+  .bottom-submit .btn-primary { min-width: 0; width: 100%; height: auto; min-height: 54px; padding: 14px; }
+  .done-actions > * { width: 100%; justify-content: center; }
+  .hours-row { flex-wrap: wrap; }
+}
 </style>

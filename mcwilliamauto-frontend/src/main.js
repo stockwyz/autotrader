@@ -5,6 +5,7 @@ import 'element-plus/dist/index.css'
 import App from './App.vue'
 import router from './router'
 import './style.scss'
+import './styles/responsive.scss'
 import './styles/richtext-content.css'
 import { vReveal } from './directives/reveal'
 

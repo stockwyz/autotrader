@@ -83,4 +83,17 @@ function onSearch() {
 :deep(.el-select__wrapper) { padding: 8px 14px !important; }
 :deep(.el-select__placeholder), :deep(.el-select__selected-item) { font-size: 15px !important; font-weight: 600 !important; }
 :deep(.el-button) { padding: 0 28px !important; height: 46px !important; }
+
+@media (max-width: 1024px) {
+  .search-wrap { padding-inline: 24px; }
+  .search-bar { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .field { min-width: 0; }
+  .search-bar > .el-button { grid-column: 1 / -1; width: 100%; }
+}
+@media (max-width: 640px) {
+  .search-wrap { margin-top: 20px; padding-inline: 16px; }
+  .search-bar { padding: 18px 16px; gap: 16px 12px; }
+  .field label { font-size: 12px; }
+}
+@media (max-width: 360px) { .search-bar { grid-template-columns: 1fr; } }
 </style>
